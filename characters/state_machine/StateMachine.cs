@@ -5,9 +5,9 @@ public class StateMachine
     private State CurrentState { get; set; }
     
     
-	public StateMachine(Sprout sprout)
+	public StateMachine(Character character)
 	{
-		ChangeState(new StateIdle(sprout));
+		ChangeState(new StateIdle(character));
 	}
 
 	public void ProcessStateUnselected(double delta)

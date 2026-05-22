@@ -1,6 +1,6 @@
 using Godot;
 
-public class StateMovement(Sprout sprout) : State(sprout)
+public class StateMovement(Character character) : State(character)
 {
     private const int Speed = 200;
     private const float Acceleration = 20f;
@@ -18,27 +18,44 @@ public class StateMovement(Sprout sprout) : State(sprout)
 
     public override State ProcessUnselected(double delta)
     {
+        if (Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) <
+            FollowDistance * FollowDistance)
+        {
+            Character.Velocity = Vector2.Zero;
+            return new StateIdle(Character);
+        }
+        
+        Vector2 direction = (Character.Other.GlobalPosition - Character.GlobalPosition).Normalized();
+        Character.Velocity = Character.Velocity.Lerp(direction * Speed, Acceleration * (float)delta);
+        // Hack to make follow movement work
+        TargetVelocity = Character.Velocity;
+        Animate();
+        
         return null;
     }
 
     public override void PhysicsProcessUnselected(double delta)
     {
+        Character.MoveAndSlide();
     }
 
     public override State ProcessSelected(double delta)
     {
-        Vector2 input = Input.GetVector("left", "right", "up", "down");
+        Vector2 input = Input.GetVector(
+            Inputs.Left,
+            Inputs.Right,
+            Inputs.Up,
+            Inputs.Down);
         TargetVelocity = input.Normalized() * Speed;
 
         if (TargetVelocity.IsZeroApprox())
         {
-            Sprout.Velocity = Vector2.Zero;
-            return new StateIdle(Sprout);
+            Character.Velocity = Vector2.Zero;
+            return new StateIdle(Character);
         }
         
-        //Sprout.Velocity.MoveToward(TargetVelocity, Acceleration * (float)delta);
         // Fake Lerp for testing
-        Sprout.Velocity = Sprout.Velocity.Lerp(TargetVelocity, Acceleration * (float)delta);
+        Character.Velocity = Character.Velocity.Lerp(TargetVelocity, Acceleration * (float)delta);
         Animate();
 
         return null;
@@ -46,15 +63,15 @@ public class StateMovement(Sprout sprout) : State(sprout)
 
     public override void PhysicsProcessSelected(double delta)
     {
-        Sprout.MoveAndSlide();
+        Character.MoveAndSlide();
     }
 
     private void Animate()
     {
         Vector2 blendPosition = TargetVelocity;
         //Vector2 blendPosition = Sprout.Velocity.Normalized();
-        Sprout.AnimationTree.Set(WalkBlendPositionPath, blendPosition);
-        Sprout.AnimationTree.Set(IdleBlendPositionPath, blendPosition);
+        Character.AnimationTree.Set(WalkBlendPositionPath, blendPosition);
+        Character.AnimationTree.Set(IdleBlendPositionPath, blendPosition);
         // GD.Print($"walk pos: {Sprout.AnimationTree.Get(WalkBlendPositionPath)} " +
         //          $"idle pos: {Sprout.AnimationTree.Get(IdleBlendPositionPath)} " +
         //          $"blend pos: {blendPosition} " +

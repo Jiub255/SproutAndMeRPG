@@ -2,17 +2,18 @@ using Godot;
 
 public abstract class State
 {
-    protected State(Sprout sprout)
+    protected State(Character character)
     {
-        Sprout = sprout;
-        Playback = sprout
+        Character = character;
+        Playback = character
             .GetNode<AnimationTree>("%AnimationTree")
             .Get("parameters/playback")
             .As<AnimationNodeStateMachinePlayback>();
     }
 
-    protected Sprout Sprout { get; init; }
+    protected Character Character { get; init; }
     protected AnimationNodeStateMachinePlayback Playback { get; init; }
+    protected const float FollowDistance = 70f;
     
     protected static string IdleBlendPositionPath => "parameters/IdleBlendSpace/blend_position";
     protected static string WalkBlendPositionPath => "parameters/WalkBlendSpace/blend_position";
