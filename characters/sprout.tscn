@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwp2780pvgr0x" path="res://art/sprites/cat_spritesheets/grey_0_aligned_complete.png" id="2_plaja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj7yv"]
+radius = 8.15
 
 [sub_resource type="Animation" id="Animation_fj7yv"]
 length = 0.001
@@ -413,16 +414,20 @@ states/WalkBlendSpace/position = Vector2(515, 180)
 transitions = ["WalkBlendSpace", "End", SubResource("AnimationNodeStateMachineTransition_k3n1d"), "Start", "IdleBlendSpace", SubResource("AnimationNodeStateMachineTransition_cbp6q"), "IdleBlendSpace", "End", SubResource("AnimationNodeStateMachineTransition_26xuy"), "IdleBlendSpace", "WalkBlendSpace", SubResource("AnimationNodeStateMachineTransition_bc84e"), "WalkBlendSpace", "IdleBlendSpace", SubResource("AnimationNodeStateMachineTransition_wukud")]
 
 [node name="Sprout" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
 script = ExtResource("1_mojfm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.44, -0.7750001)
 shape = SubResource("CircleShape2D_fj7yv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
 texture = ExtResource("2_plaja")
 hframes = 9
 vframes = 54
-frame = 45
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -431,7 +436,7 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
 unique_name_in_owner = true
-root_node = NodePath("%SproutAnimationTree/..")
+root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_2o6r5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/IdleBlendSpace/blend_position = Vector2(-0.29241878, -0.6957747)

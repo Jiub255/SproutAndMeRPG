@@ -35,7 +35,7 @@ public class StateMachine
 	private void ChangeState(State state)
 	{
 		if (state == null) return;
-		GD.Print($"Changing from {CurrentState?.GetType()} to {state.GetType()}");
+		//GD.Print($"Changing from {CurrentState?.GetType()} to {state.GetType()}");
 		CurrentState?.ExitState();
 		CurrentState = state;
 		CurrentState?.EnterState();
