@@ -1,3 +1,22 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+android/
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+/addons/
+!/addons/namespacer/
+!/addons/resource_database_filler/
+!/addons/resource_editor/
+!/addons/uidsfiller/
+/unused_assets/
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json

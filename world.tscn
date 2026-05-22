@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do061g11pdi4u" path="res://World.cs" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bui8ajmstd6ba" path="res://characters/sprout.tscn" id="2_aqk2v"]
-[ext_resource type="Texture2D" uid="uid://5yncv27w064h" path="res://art/basic_tileset_and_assets_standard_v3.0/tiles/tiles-grass light-32x32.png" id="3_tlwt5"]
+[ext_resource type="Texture2D" uid="uid://5yncv27w064h" path="res://art/tilesets/basic_tileset_and_assets_standard_v3.0/tiles/tiles-grass light-32x32.png" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://byqxa14d6k4cr" path="res://characters/me.tscn" id="4_036b0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
