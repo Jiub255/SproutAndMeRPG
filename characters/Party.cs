@@ -4,35 +4,37 @@ public class Party
 {
     private Character Sprout { get; }
     private Character Me { get; }
+    private Camera Camera { get; }
     
-    private Character ActiveChar { get; set; }
 
-    public Party(Character sprout, Character me)
+    public Party(Character sprout, Character me, Camera camera)
     {
         Sprout = sprout;
         Me = me;
-        ActiveChar = Me;
+        Camera = camera;
+        
+        Camera.FollowTarget = Me;
         Me.Selected = true;
         Sprout.Selected = false;
     }
 
     public void Switch()
     {
-        if (ActiveChar == Me)
+        if (Camera.FollowTarget == Me)
         {
-            ActiveChar = Sprout;
+            Camera.FollowTarget = Sprout;
             Me.Selected = false;
             Sprout.Selected = true;
         }
-        else if (ActiveChar == Sprout)
+        else if (Camera.FollowTarget == Sprout)
         {
-            ActiveChar = Me;
+            Camera.FollowTarget = Me;
             Me.Selected = true;
             Sprout.Selected = false;
         }
         else
         {
-            GD.PushWarning("No active char");
+            GD.PushWarning("No follow target on camera");
         }
     }
 }

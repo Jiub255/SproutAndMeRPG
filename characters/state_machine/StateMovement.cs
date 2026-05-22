@@ -2,7 +2,7 @@ using Godot;
 
 public class StateMovement(Character character) : State(character)
 {
-    private const int Speed = 200;
+    private const int MaxSpeed = 200;
     private const float Acceleration = 20f;
     
     private Vector2 TargetVelocity { get; set; } = Vector2.Zero;
@@ -26,7 +26,7 @@ public class StateMovement(Character character) : State(character)
         }
         
         Vector2 direction = (Character.Other.GlobalPosition - Character.GlobalPosition).Normalized();
-        Character.Velocity = Character.Velocity.Lerp(direction * Speed, Acceleration * (float)delta);
+        Character.Velocity = Character.Velocity.Lerp(direction * MaxSpeed, Acceleration * (float)delta);
         // Hack to make follow movement work
         TargetVelocity = Character.Velocity;
         Animate();
@@ -46,7 +46,7 @@ public class StateMovement(Character character) : State(character)
             Inputs.Right,
             Inputs.Up,
             Inputs.Down);
-        TargetVelocity = input.Normalized() * Speed;
+        TargetVelocity = input.Normalized() * MaxSpeed;
 
         if (TargetVelocity.IsZeroApprox())
         {
