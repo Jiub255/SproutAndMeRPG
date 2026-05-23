@@ -4,6 +4,7 @@ public partial class Character : CharacterBody2D
 {
     public AnimationTree AnimationTree { get; private set; }
     public bool Selected { get; set; }
+    public bool Following { get; set; } = true;
     public Character Other { get; set; }
     private StateMachine StateMachine { get; set; }
 

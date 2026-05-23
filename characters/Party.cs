@@ -37,4 +37,10 @@ public class Party
             GD.PushWarning("No follow target on camera");
         }
     }
+
+    public void ToggleFollower()
+    {
+        Sprout.Following = !Sprout.Following;
+        Me.Following = !Me.Following;
+    }
 }

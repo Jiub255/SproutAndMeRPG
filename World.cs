@@ -26,5 +26,10 @@ public partial class World : Node2D
         {
             Party.Switch();
         }
+
+        if (Input.IsActionJustPressed(Inputs.ToggleFollow))
+        {
+            Party.ToggleFollower();
+        }
     }
 }

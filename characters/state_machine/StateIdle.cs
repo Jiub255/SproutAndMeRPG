@@ -13,6 +13,8 @@ public class StateIdle(Character character) : State(character)
 
     public override State ProcessUnselected(double delta)
     {
+        if (!Character.Following) return null;
+        
         bool needToStartFollowing = Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) >
                             FollowDistance * FollowDistance * 4f;
         return needToStartFollowing ? new StateMovement(Character) : null;

@@ -18,13 +18,13 @@ public class StateMovement(Character character) : State(character)
 
     public override State ProcessUnselected(double delta)
     {
-        if (Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) <
+        if (!Character.Following || Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) <
             FollowDistance * FollowDistance)
         {
             Character.Velocity = Vector2.Zero;
             return new StateIdle(Character);
         }
-        
+
         Vector2 direction = (Character.Other.GlobalPosition - Character.GlobalPosition).Normalized();
         Character.Velocity = Character.Velocity.Lerp(direction * MaxSpeed, Acceleration * (float)delta);
         // Hack to make follow movement work
