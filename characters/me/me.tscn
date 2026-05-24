@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://byqxa14d6k4cr"]
+[gd_scene load_steps=32 format=3 uid="uid://byqxa14d6k4cr"]
 
 [ext_resource type="Script" uid="uid://ek4af84671ii" path="res://characters/me/Me.cs" id="1_ybbkp"]
 [ext_resource type="Texture2D" uid="uid://b2l1rk2suxu1c" path="res://art/sprites/Main Character/character.png" id="2_gr18w"]
+[ext_resource type="Script" uid="uid://ds2q0uclmolvu" path="res://addons/dialogic/Core/DialogicGameHandler.gd" id="3_djv63"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tlwt5"]
 radius = 7.85
@@ -227,6 +228,9 @@ states/WalkBlendSpace/position = Vector2(546, 164)
 transitions = ["Start", "IdleBlendSpace", SubResource("AnimationNodeStateMachineTransition_my276"), "IdleBlendSpace", "WalkBlendSpace", SubResource("AnimationNodeStateMachineTransition_yx0jh"), "WalkBlendSpace", "IdleBlendSpace", SubResource("AnimationNodeStateMachineTransition_1ew0l"), "IdleBlendSpace", "End", SubResource("AnimationNodeStateMachineTransition_ryup7"), "WalkBlendSpace", "End", SubResource("AnimationNodeStateMachineTransition_ytpkv")]
 graph_offset = Vector2(-74, -81)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybbkp"]
+radius = 20.0
+
 [node name="Me" type="CharacterBody2D"]
 collision_mask = 12
 script = ExtResource("1_ybbkp")
@@ -253,3 +257,16 @@ tree_root = SubResource("AnimationNodeStateMachine_bc84e")
 anim_player = NodePath("../AnimationPlayer")
 parameters/IdleBlendSpace/blend_position = Vector2(0.32851982, 0.22816896)
 parameters/WalkBlendSpace/blend_position = Vector2(0.029396653, -0.22816896)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_ybbkp")
+
+[node name="DialogicGameHandler" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_djv63")
+metadata/_custom_type_script = "uid://ds2q0uclmolvu"

@@ -6,4 +6,5 @@ public static class Inputs
     public const string Down = "down";
     public const string Switch = "switch";
     public const string ToggleFollow = "toggle_follow";
+    public const string Interact = "interact";
 }

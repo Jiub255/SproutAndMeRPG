@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://tb31v63lk2ts"]
+[gd_scene load_steps=10 format=4 uid="uid://tb31v63lk2ts"]
 
 [ext_resource type="Script" uid="uid://do061g11pdi4u" path="res://World.cs" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bui8ajmstd6ba" path="res://characters/sprout/sprout.tscn" id="2_aqk2v"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byqxa14d6k4cr" path="res://characters/me/me.tscn" id="4_036b0"]
 [ext_resource type="Script" uid="uid://ljjkog66rawb" path="res://Camera.cs" id="4_dwbse"]
 [ext_resource type="PackedScene" uid="uid://db8vgdgmr88hv" path="res://game_objects/house_1.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://bdmvi6c6db2rs" path="res://characters/npcs/npc.tscn" id="7_pkg7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_036b0"]
 texture = ExtResource("3_aqk2v")
@@ -645,3 +646,6 @@ position = Vector2(22, -22)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="NPC" parent="." instance=ExtResource("7_pkg7o")]
+position = Vector2(321, -105)

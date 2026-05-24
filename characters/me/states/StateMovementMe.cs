@@ -1,6 +1,6 @@
 using Godot;
 
-public class StateMovementMe(Character character) : State(character)
+public class StateMovementMe(Me me) : StateMe(me)
 {
     private static string IdleBlendPositionPath => "parameters/IdleBlendSpace/blend_position";
     private int MaxSpeed { get; set; } = 200;
@@ -26,12 +26,12 @@ public class StateMovementMe(Character character) : State(character)
 
         if (TargetVelocity.IsZeroApprox())
         {
-            Character.Velocity = Vector2.Zero;
-            return new StateIdleMe(Character);
+            Me.Velocity = Vector2.Zero;
+            return new StateIdleMe(Me);
         }
         
         // Fake Lerp
-        Character.Velocity = Character.Velocity.Lerp(TargetVelocity, Acceleration * (float)delta);
+        Me.Velocity = Me.Velocity.Lerp(TargetVelocity, Acceleration * (float)delta);
         Animate(TargetVelocity);
 
         return null;
@@ -39,33 +39,35 @@ public class StateMovementMe(Character character) : State(character)
 
     public override void PhysicsProcessSelected(double delta)
     {
-        Character.MoveAndSlide();
+        Me.MoveAndSlide();
     }
 
     public override State ProcessUnselected(double delta)
     {
-        if (!Character.Following || Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) <
+        if (!Me.Following || Me.GlobalPosition.DistanceSquaredTo(Me.Other.GlobalPosition) <
             FollowDistance * FollowDistance)
         {
-            Character.Velocity = Vector2.Zero;
-            return new StateIdleMe(Character);
+            Me.Velocity = Vector2.Zero;
+            return new StateIdleMe(Me);
         }
 
-        Vector2 direction = (Character.Other.GlobalPosition - Character.GlobalPosition).Normalized();
-        Character.Velocity = Character.Velocity.Lerp(direction * MaxSpeed, Acceleration * (float)delta);
-        Animate(Character.Velocity);
+        Vector2 direction = (Me.Other.GlobalPosition - Me.GlobalPosition).Normalized();
+        Me.Velocity = Me.Velocity.Lerp(direction * MaxSpeed, Acceleration * (float)delta);
+        Animate(direction);
         
         return null;
     }
 
     public override void PhysicsProcessUnselected(double delta)
     {
-        Character.MoveAndSlide();
+        Me.MoveAndSlide();
     }
 
     private void Animate(Vector2 blendPosition)
     {
-        Character.AnimationTree.Set(WalkBlendPositionPath, blendPosition);
-        Character.AnimationTree.Set(IdleBlendPositionPath, blendPosition);
+        Me.InteractionArea.Rotation = blendPosition.Angle();
+
+        Me.AnimationTree.Set(WalkBlendPositionPath, blendPosition);
+        Me.AnimationTree.Set(IdleBlendPositionPath, blendPosition);
     }
 }

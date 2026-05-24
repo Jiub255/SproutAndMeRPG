@@ -38,21 +38,20 @@
 			"uuid": "a7fb1bd4-aca9-4df3-89bd-001dac504640",
 			"title": "TODO NEXT",
 			"tasks": [
-				"5a97e5a4-ec8d-4ff4-8132-7a5d54d57c18",
 				"60a00e25-ac3b-432c-9d16-2d2033b7d165"
 			]
 		},
 		{
 			"uuid": "5fd3e5da-7539-4975-848d-db872e803180",
 			"title": "DOING",
-			"tasks": [
-				"a0e2941d-3224-425f-b4df-e6e905a7d8a2"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "c30cf8d3-b6d9-4294-ad9a-64e5903fe5d0",
 			"title": "DONE",
 			"tasks": [
+				"5a97e5a4-ec8d-4ff4-8132-7a5d54d57c18",
+				"a0e2941d-3224-425f-b4df-e6e905a7d8a2",
 				"14731023-575a-41c0-8035-c9e04c67016f",
 				"fad84811-0b7f-437b-9c17-e40efd6b2dde"
 			]
@@ -61,6 +60,7 @@
 			"uuid": "150d8bd1-ba6d-4a8a-b93e-15d7215549c1",
 			"title": "FIXED BUGS",
 			"tasks": [
+				"ad9ed1af-c8b9-4fdd-9cee-34d921c949c9",
 				"4ba0746a-c06b-4792-a5da-0019109fab8f",
 				"39eaa594-95f2-4303-8680-dad21e75f9b9"
 			]
@@ -140,6 +140,13 @@
 			"title": "Make basic combat system",
 			"description": "",
 			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "ad9ed1af-c8b9-4fdd-9cee-34d921c949c9",
+			"title": "Sprout only faces diagonally when following",
+			"description": "Fixed by sending direction instead of Sprout.Velocity to Animate() in Sprout.ProcessUnselected()",
+			"category": "f0101e2c-a961-4d78-b614-0e71dbed8ce5",
 			"steps": []
 		}
 	],

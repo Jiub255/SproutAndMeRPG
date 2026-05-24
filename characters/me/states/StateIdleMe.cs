@@ -1,6 +1,6 @@
 using Godot;
 
-public class StateIdleMe(Character character) : State(character)
+public class StateIdleMe(Me me) : StateMe(me)
 {
     private static string IdleBlendSpaceName => "IdleBlendSpace";
     
@@ -18,18 +18,18 @@ public class StateIdleMe(Character character) : State(character)
             Inputs.Right,
             Inputs.Up,
             Inputs.Down);
-        return input.IsZeroApprox() ? null : new StateMovementMe(Character);
+        return input.IsZeroApprox() ? null : new StateMovementMe(Me);
     }
 
     public override void PhysicsProcessSelected(double delta) {}
 
     public override State ProcessUnselected(double delta)
     {
-        if (!Character.Following) return null;
+        if (!Me.Following) return null;
         
-        bool needToStartFollowing = Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) >
-                            FollowDistance * FollowDistance * FollowRadiusOverlapMultiplier;
-        return needToStartFollowing ? new StateMovementMe(Character) : null;
+        bool needToStartFollowing = Me.GlobalPosition.DistanceSquaredTo(Me.Other.GlobalPosition) >
+                                    FollowDistance * FollowDistance * FollowRadiusOverlapMultiplier;
+        return needToStartFollowing ? new StateMovementMe(Me) : null;
     }
 
     public override void PhysicsProcessUnselected(double delta) {}

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class StateIdleSprout(Character character) : State(character)
+public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
 {
     private static string IdleStateMachineName => "IdleStateMachine";
     private static string IdleSitName => "SitBlendSpace";
@@ -14,7 +14,7 @@ public class StateIdleSprout(Character character) : State(character)
     private static float MaxRandomTime => 10f;
     private float Timer { get; set; }
     private Random Random { get; } = new();
-    private AnimationNodeStateMachinePlayback IdlePlayback { get; } = character
+    private AnimationNodeStateMachinePlayback IdlePlayback { get; } = sprout
         .GetNode<AnimationTree>("%AnimationTree")
         .Get(IdlePlaybackPath)
         .As<AnimationNodeStateMachinePlayback>();
@@ -43,18 +43,18 @@ public class StateIdleSprout(Character character) : State(character)
             Inputs.Right,
             Inputs.Up,
             Inputs.Down);
-        return !input.IsZeroApprox() ? new StateMovementSprout(Character) : ProcessShared(delta);
+        return !input.IsZeroApprox() ? new StateMovementSprout(Sprout) : ProcessShared(delta);
     }
 
     public override void PhysicsProcessSelected(double delta) {}
 
     public override State ProcessUnselected(double delta)
     {
-        if (!Character.Following) return ProcessShared(delta);
+        if (!Sprout.Following) return ProcessShared(delta);
         
-        bool needToStartFollowing = Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) >
+        bool needToStartFollowing = Sprout.GlobalPosition.DistanceSquaredTo(Sprout.Other.GlobalPosition) >
                                     FollowDistance * FollowDistance * FollowRadiusOverlapMultiplier;
-        return needToStartFollowing ? new StateMovementSprout(Character) : ProcessShared(delta);
+        return needToStartFollowing ? new StateMovementSprout(Sprout) : ProcessShared(delta);
     }
 
     public override void PhysicsProcessUnselected(double delta) {}
@@ -76,7 +76,7 @@ public class StateIdleSprout(Character character) : State(character)
                     case 0:
                         // TODO: Shift to sitting animation
                         GD.Print("Switching to sitting animation");
-                        Character.AnimationTree.Set(IdleSitTimeseekPath, AnimationLength);
+                        Sprout.AnimationTree.Set(IdleSitTimeseekPath, AnimationLength);
                         IdleVariation = IdlePosition.Sitting;
                         IdlePlayback.Travel(IdleSitName);
                         break;
@@ -99,7 +99,7 @@ public class StateIdleSprout(Character character) : State(character)
                 {
                     // TODO: Switch to unsitting blend tree, which should automatically go to regular idle after
                     GD.Print("Switching to unsitting animation");
-                    Character.AnimationTree.Set(UnsitTimeseekPath, AnimationLength);
+                    Sprout.AnimationTree.Set(UnsitTimeseekPath, AnimationLength);
                     IdleVariation = IdlePosition.Normal;
                     IdlePlayback.Travel(IdleUnsitName);
                 }

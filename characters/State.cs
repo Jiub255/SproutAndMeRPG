@@ -4,14 +4,14 @@ public abstract class State
 {
     protected State(Character character)
     {
-        Character = character;
+       // Character = character;
         Playback = character
             .GetNode<AnimationTree>("%AnimationTree")
             .Get("parameters/playback")
             .As<AnimationNodeStateMachinePlayback>();
     }
 
-    protected Character Character { get; }
+    //protected Character Character { get; }
     protected AnimationNodeStateMachinePlayback Playback { get; }
     
     protected static float FollowDistance => 70f;

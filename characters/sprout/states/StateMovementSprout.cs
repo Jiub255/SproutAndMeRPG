@@ -1,6 +1,6 @@
 using Godot;
 
-public class StateMovementSprout(Character character) : State(character)
+public class StateMovementSprout(Sprout sprout) : StateSprout(sprout)
 {
     private static string IdleBlendPositionNormal => "parameters/IdleStateMachine/IdleBlendSpace/blend_position";
     private static string IdleBlendPositionSit => "parameters/IdleStateMachine/IdleSitBlendTree/AnimationNodeBlendSpace2D/blend_position";
@@ -29,12 +29,12 @@ public class StateMovementSprout(Character character) : State(character)
 
         if (TargetVelocity.IsZeroApprox())
         {
-            Character.Velocity = Vector2.Zero;
-            return new StateIdleSprout(Character);
+            Sprout.Velocity = Vector2.Zero;
+            return new StateIdleSprout(Sprout);
         }
         
         // Fake Lerp
-        Character.Velocity = Character.Velocity.Lerp(TargetVelocity, Acceleration * (float)delta);
+        Sprout.Velocity = Sprout.Velocity.Lerp(TargetVelocity, Acceleration * (float)delta);
         Animate(TargetVelocity);
 
         return null;
@@ -42,36 +42,36 @@ public class StateMovementSprout(Character character) : State(character)
 
     public override void PhysicsProcessSelected(double delta)
     {
-        Character.MoveAndSlide();
+        Sprout.MoveAndSlide();
     }
 
     public override State ProcessUnselected(double delta)
     {
-        if (!Character.Following || Character.GlobalPosition.DistanceSquaredTo(Character.Other.GlobalPosition) <
+        if (!Sprout.Following || Sprout.GlobalPosition.DistanceSquaredTo(Sprout.Other.GlobalPosition) <
             FollowDistance * FollowDistance)
         {
-            Character.Velocity = Vector2.Zero;
-            return new StateIdleSprout(Character);
+            Sprout.Velocity = Vector2.Zero;
+            return new StateIdleSprout(Sprout);
         }
 
-        Vector2 direction = (Character.Other.GlobalPosition - Character.GlobalPosition).Normalized();
-        Character.Velocity = Character.Velocity.Lerp(direction * MaxSpeed, Acceleration * (float)delta);
-        Animate(Character.Velocity);
+        Vector2 direction = (Sprout.Other.GlobalPosition - Sprout.GlobalPosition).Normalized();
+        Sprout.Velocity = Sprout.Velocity.Lerp(direction * MaxSpeed, Acceleration * (float)delta);
+        Animate(direction);
         
         return null;
     }
 
     public override void PhysicsProcessUnselected(double delta)
     {
-        Character.MoveAndSlide();
+        Sprout.MoveAndSlide();
     }
 
     private void Animate(Vector2 blendPosition)
     {
-        Character.AnimationTree.Set(WalkBlendPositionPath, blendPosition);
-        Character.AnimationTree.Set(IdleBlendPositionNormal, blendPosition);
-        Character.AnimationTree.Set(IdleBlendPositionSit, blendPosition);
-        Character.AnimationTree.Set(IdleBlendPositionSitIdle, blendPosition);
-        Character.AnimationTree.Set(IdleBlendPositionUnsit, blendPosition);
+        Sprout.AnimationTree.Set(WalkBlendPositionPath, blendPosition);
+        Sprout.AnimationTree.Set(IdleBlendPositionNormal, blendPosition);
+        Sprout.AnimationTree.Set(IdleBlendPositionSit, blendPosition);
+        Sprout.AnimationTree.Set(IdleBlendPositionSitIdle, blendPosition);
+        Sprout.AnimationTree.Set(IdleBlendPositionUnsit, blendPosition);
     }
 }
