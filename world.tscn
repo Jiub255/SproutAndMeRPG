@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://tb31v63lk2ts"]
 
 [ext_resource type="Script" uid="uid://do061g11pdi4u" path="res://World.cs" id="1_dwbse"]
-[ext_resource type="PackedScene" uid="uid://bui8ajmstd6ba" path="res://characters/sprout.tscn" id="2_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bui8ajmstd6ba" path="res://characters/sprout/sprout.tscn" id="2_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://djqi2xwxweok6" path="res://art/tilesets/The Fan-tasy Tileset (Free)/Art/Ground Tileset/Tileset_Ground.png" id="3_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://byqxa14d6k4cr" path="res://characters/me.tscn" id="4_036b0"]
+[ext_resource type="PackedScene" uid="uid://byqxa14d6k4cr" path="res://characters/me/me.tscn" id="4_036b0"]
 [ext_resource type="Script" uid="uid://ljjkog66rawb" path="res://Camera.cs" id="4_dwbse"]
-[ext_resource type="PackedScene" uid="uid://db8vgdgmr88hv" path="res://house_1.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://db8vgdgmr88hv" path="res://game_objects/house_1.tscn" id="6_dwbse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_036b0"]
 texture = ExtResource("3_aqk2v")
@@ -615,15 +615,6 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("4_dwbse")
 
-[node name="Sprout" parent="." instance=ExtResource("2_aqk2v")]
-unique_name_in_owner = true
-y_sort_enabled = true
-
-[node name="Me" parent="." instance=ExtResource("4_036b0")]
-unique_name_in_owner = true
-y_sort_enabled = true
-position = Vector2(22, -22)
-
 [node name="Environment" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -639,3 +630,18 @@ y_sort_enabled = true
 [node name="House1" parent="Environment/Buildings" instance=ExtResource("6_dwbse")]
 y_sort_enabled = true
 position = Vector2(266, -162)
+
+[node name="Sprout" parent="." instance=ExtResource("2_aqk2v")]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Me" parent="." instance=ExtResource("4_036b0")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(22, -22)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]

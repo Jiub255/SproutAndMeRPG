@@ -6,13 +6,14 @@ public partial class Character : CharacterBody2D
     public bool Selected { get; set; }
     public bool Following { get; set; } = true;
     public Character Other { get; set; }
-    private StateMachine StateMachine { get; set; }
+    
+    protected StateMachine StateMachine { get; set; }
 
+    
     public override void _Ready()
     {
         base._Ready();
         AnimationTree = GetNode<AnimationTree>("%AnimationTree");
-        StateMachine = new StateMachine(this);
     }
 
     public override void _Process(double delta)

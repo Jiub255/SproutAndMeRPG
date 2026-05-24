@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://byqxa14d6k4cr"]
 
-[ext_resource type="Script" uid="uid://6vw1k73g6y4q" path="res://characters/Character.cs" id="1_2vs64"]
+[ext_resource type="Script" uid="uid://ek4af84671ii" path="res://characters/me/Me.cs" id="1_ybbkp"]
 [ext_resource type="Texture2D" uid="uid://b2l1rk2suxu1c" path="res://art/sprites/Main Character/character.png" id="2_gr18w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tlwt5"]
@@ -229,7 +229,7 @@ graph_offset = Vector2(-74, -81)
 
 [node name="Me" type="CharacterBody2D"]
 collision_mask = 12
-script = ExtResource("1_2vs64")
+script = ExtResource("1_ybbkp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.27499962)

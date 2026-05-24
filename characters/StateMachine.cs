@@ -1,13 +1,11 @@
-using Godot;
-
 public class StateMachine
 {
     private State CurrentState { get; set; }
     
     
-	public StateMachine(Character character)
+	public StateMachine(State initialState)
 	{
-		ChangeState(new StateIdle(character));
+		ChangeState(initialState);
 	}
 
 	public void ProcessStateUnselected(double delta)
@@ -35,6 +33,7 @@ public class StateMachine
 	private void ChangeState(State state)
 	{
 		if (state == null) return;
+		
 		//GD.Print($"Changing from {CurrentState?.GetType()} to {state.GetType()}");
 		CurrentState?.ExitState();
 		CurrentState = state;

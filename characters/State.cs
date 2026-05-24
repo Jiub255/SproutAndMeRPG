@@ -11,19 +11,18 @@ public abstract class State
             .As<AnimationNodeStateMachinePlayback>();
     }
 
-    protected Character Character { get; init; }
-    protected AnimationNodeStateMachinePlayback Playback { get; init; }
-    protected const float FollowDistance = 70f;
+    protected Character Character { get; }
+    protected AnimationNodeStateMachinePlayback Playback { get; }
     
-    protected static string IdleBlendPositionPath => "parameters/IdleBlendSpace/blend_position";
+    protected static float FollowDistance => 70f;
+    protected static float FollowRadiusOverlapMultiplier => 4f;
     protected static string WalkBlendPositionPath => "parameters/WalkBlendSpace/blend_position";
     protected static string WalkBlendSpaceName => "WalkBlendSpace";
-    protected static string IdleBlendSpaceName => "IdleBlendSpace";
     
     public abstract void EnterState();
     public abstract void ExitState();
-    public abstract State ProcessUnselected(double delta);
-    public abstract void PhysicsProcessUnselected(double delta);
     public abstract State ProcessSelected(double delta);
     public abstract void PhysicsProcessSelected(double delta);
+    public abstract State ProcessUnselected(double delta);
+    public abstract void PhysicsProcessUnselected(double delta);
 }

@@ -37,22 +37,33 @@
 		{
 			"uuid": "a7fb1bd4-aca9-4df3-89bd-001dac504640",
 			"title": "TODO NEXT",
-			"tasks": []
+			"tasks": [
+				"5a97e5a4-ec8d-4ff4-8132-7a5d54d57c18",
+				"60a00e25-ac3b-432c-9d16-2d2033b7d165"
+			]
 		},
 		{
 			"uuid": "5fd3e5da-7539-4975-848d-db872e803180",
 			"title": "DOING",
-			"tasks": []
+			"tasks": [
+				"a0e2941d-3224-425f-b4df-e6e905a7d8a2"
+			]
 		},
 		{
 			"uuid": "c30cf8d3-b6d9-4294-ad9a-64e5903fe5d0",
 			"title": "DONE",
-			"tasks": []
+			"tasks": [
+				"14731023-575a-41c0-8035-c9e04c67016f",
+				"fad84811-0b7f-437b-9c17-e40efd6b2dde"
+			]
 		},
 		{
 			"uuid": "150d8bd1-ba6d-4a8a-b93e-15d7215549c1",
 			"title": "FIXED BUGS",
-			"tasks": []
+			"tasks": [
+				"4ba0746a-c06b-4792-a5da-0019109fab8f",
+				"39eaa594-95f2-4303-8680-dad21e75f9b9"
+			]
 		},
 		{
 			"uuid": "75332ff4-5508-4f0f-8b5b-207915a54401",
@@ -62,7 +73,9 @@
 		{
 			"uuid": "7de28946-830b-41ea-bb12-81ce4796ad88",
 			"title": "TODO EVENTUALLY",
-			"tasks": []
+			"tasks": [
+				"44bd9d60-8028-42a6-b273-efdcb0280d8b"
+			]
 		}
 	],
 	"tasks": [
@@ -71,6 +84,62 @@
 			"title": "Game Description",
 			"description": "Top down RPG with Sprout and Me.\nSprout can charm enemies, crawl through small spaces, go real fast, etc. Cat stuff.\nControl either character. Can make the other wait or follow.\nARPG style combat? Not sure yet.",
 			"category": "b655f4f4-7d51-4f54-83a8-9dfc1f027e21",
+			"steps": []
+		},
+		{
+			"uuid": "14731023-575a-41c0-8035-c9e04c67016f",
+			"title": "Make random idle animations for sprout",
+			"description": "Might be able to make a CatStateIdle : StateIdle class and just use that? Might just use separate state machines/states altogether. Might switch to behavior trees.",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "fad84811-0b7f-437b-9c17-e40efd6b2dde",
+			"title": "Make separate scripts for Me and Sprout, with different states in the state machine.",
+			"description": "Could both inherit from Character maybe. And could maybe inherit base states and use the same machine? Maybe just completely separate?\nMade Sprout and Me scripts inherit Character, and initialize the state machine by giving it the initial state. Have separate states for Me and Sprout",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "44bd9d60-8028-42a6-b273-efdcb0280d8b",
+			"title": "Improve follow system",
+			"description": "Implement path finding. And have a mechanic where the follower can get a burst of speed to catch up when too far behind. Maybe a warp back to nearby thing if they get really far/stuck.",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "39eaa594-95f2-4303-8680-dad21e75f9b9",
+			"title": "Sprout disappears when going into sitting idle",
+			"description": "Fixed by setting all the blend positions in StateMovementSprout.Animate(). Also set the inital values (-1, 0) in the inspector so he idles correctly even before moving. \n\nProbably from the TimeSeek in the idle sit blend tree. I assumed putting it to the end of the animation would just have it frozen on the last frame, but the sprite disappears instead. \nAlso problems with sprout facing the correct direction when doing the sitting animations.",
+			"category": "f0101e2c-a961-4d78-b614-0e71dbed8ce5",
+			"steps": []
+		},
+		{
+			"uuid": "4ba0746a-c06b-4792-a5da-0019109fab8f",
+			"title": "Unsitting animation only shows first time",
+			"description": "Fixed by setting the timeseek seek_request values to 0.65 (a little shorter than the animation length) before transitioning to those blend trees. They get reset to -1 after each use by default. \n\nEvery following time it just skips straight from sitting to standing without the unsitting animation. Might be something with the blend tree remembering where it was?",
+			"category": "f0101e2c-a961-4d78-b614-0e71dbed8ce5",
+			"steps": []
+		},
+		{
+			"uuid": "a0e2941d-3224-425f-b4df-e6e905a7d8a2",
+			"title": "Make NPCs",
+			"description": "",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "5a97e5a4-ec8d-4ff4-8132-7a5d54d57c18",
+			"title": "Make dialog system",
+			"description": "",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "60a00e25-ac3b-432c-9d16-2d2033b7d165",
+			"title": "Make basic combat system",
+			"description": "",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
 			"steps": []
 		}
 	],
