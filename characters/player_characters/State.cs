@@ -1,5 +1,7 @@
 using Godot;
 
+namespace SproutandMeRPG.characters.player_characters;
+
 public abstract class State(PlayerCharacter playerCharacter)
 {
     protected AnimationNodeStateMachinePlayback Playback { get; } = playerCharacter

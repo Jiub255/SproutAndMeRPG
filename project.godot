@@ -18,6 +18,8 @@ config/icon="res://art/sprites/icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 
 [dialogic]
 
@@ -46,7 +48,7 @@ project/assembly_name="Sprout and Me RPG"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
 
 [file_customization]
 
@@ -55,8 +57,9 @@ folder_colors={
 "res://art/": "orange",
 "res://characters/": "yellow",
 "res://dialog/": "green",
-"res://game_objects/": "blue",
-"res://misc/": "purple"
+"res://game_objects/": "teal",
+"res://misc/": "blue",
+"res://test_beehave/": "purple"
 }
 
 [input]

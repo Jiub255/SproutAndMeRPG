@@ -1,3 +1,5 @@
+namespace SproutandMeRPG.characters.non_player_characters;
+
 public class StateMachineNpc
 {
     private StateNpc CurrentState { get; set; }

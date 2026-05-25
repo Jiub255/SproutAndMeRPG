@@ -1,6 +1,8 @@
-using Godot;
 using System;
 using System.Threading;
+using Godot;
+
+namespace SproutandMeRPG.characters.behavior_tree;
 
 public partial class BTManager : Node
 {
@@ -30,7 +32,7 @@ public partial class BTManager : Node
     /// Executes the behavior tree starting from the root node and handles danger interruptions.
     /// </summary>
     /// <returns>A <see cref="BTResult"/> indicating the outcome of the behavior execution. </returns>
-    public BTResult Behave()
+    public BTResult Cycle()
     {
         if (RootNode == null) return BTResult.Failure;
         

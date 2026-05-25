@@ -1,5 +1,7 @@
 using Godot;
 
+namespace SproutandMeRPG.characters.non_player_characters.friends;
+
 public partial class FriendSingleDialog : Friend, ITalkable
 {
     [Export]

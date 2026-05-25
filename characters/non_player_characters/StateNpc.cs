@@ -1,5 +1,7 @@
 using Godot;
 
+namespace SproutandMeRPG.characters.non_player_characters;
+
 public abstract class StateNpc(NonPlayerCharacter npc)
 {
     protected AnimationNodeStateMachinePlayback Playback { get; } = npc

@@ -1,5 +1,7 @@
-using Godot;
 using System;
+using Godot;
+
+namespace SproutandMeRPG.misc;
 
 public static class Extensions
 {

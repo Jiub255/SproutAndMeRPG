@@ -1,5 +1,8 @@
-using Godot;
 using System;
+using Godot;
+using SproutandMeRPG.misc;
+
+namespace SproutandMeRPG.characters.player_characters.sprout.states;
 
 public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
 {
@@ -7,8 +10,8 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
     private static string IdleSitName => "SitBlendSpace";
     private static string IdleUnsitName => "UnsitBlendTree";
     private static string IdlePlaybackPath => "parameters/IdleStateMachine/playback";
-    private static string IdleSitTimeseekPath => "parameters/IdleStateMachine/IdleSitBlendTree/TimeSeek/seek_request";
-    private static string UnsitTimeseekPath => "parameters/IdleStateMachine/UnsitBlendTree/TimeSeek/seek_request";
+   // private static string IdleSitTimeSeekPath => "parameters/IdleStateMachine/IdleSitBlendTree/TimeSeek/seek_request";
+    private static string UnsitTimeSeekPath => "parameters/IdleStateMachine/UnsitBlendTree/TimeSeek/seek_request";
     private static float AnimationLength => 0.65f;
     private static float MinRandomTime => 3f;
     private static float MaxRandomTime => 10f;
@@ -74,7 +77,8 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
 
     private void ResetTimerRandom()
     {
-        Timer = Random.RandomFRange(MinRandomTime, MaxRandomTime);
+        Timer = 2f;
+        //Timer = Random.RandomFRange(MinRandomTime, MaxRandomTime);
     }
 
     private void ChooseIdlePositionRandom()
@@ -90,7 +94,7 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
                     case 0:
                         // TODO: Shift to sitting animation
                         GD.Print("Switching to sitting animation");
-                        Sprout.AnimationTree.Set(IdleSitTimeseekPath, AnimationLength);
+                       // Sprout.AnimationTree.Set(IdleSitTimeSeekPath, AnimationLength);
                         IdleVariation = IdlePosition.Sitting;
                         IdlePlayback.Travel(IdleSitName);
                         break;
@@ -114,7 +118,7 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
                 {
                     // TODO: Switch to unsitting blend tree, which should automatically go to regular idle after
                     GD.Print("Switching to unsitting animation");
-                    Sprout.AnimationTree.Set(UnsitTimeseekPath, AnimationLength);
+                    Sprout.AnimationTree.Set(UnsitTimeSeekPath, AnimationLength);
                     IdleVariation = IdlePosition.Normal;
                     IdlePlayback.Travel(IdleUnsitName);
                 }

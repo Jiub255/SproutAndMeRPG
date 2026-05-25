@@ -1,9 +1,11 @@
-using Godot;
 using System;
+using Godot;
+
+namespace SproutandMeRPG.dialog;
 
 public partial class Dialogic : GodotObject
 {
-   // public event Action<Variant> SignalEvent;
+    // public event Action<Variant> SignalEvent;
     public event Action TimelineEnded;
 
     public Dialogic(Node dialogicGameHandler)

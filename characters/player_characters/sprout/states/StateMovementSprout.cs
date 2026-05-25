@@ -1,10 +1,13 @@
 using Godot;
+using SproutandMeRPG.misc;
+
+namespace SproutandMeRPG.characters.player_characters.sprout.states;
 
 public class StateMovementSprout(Sprout sprout) : StateSprout(sprout)
 {
     private static string IdleBlendPositionNormal => "parameters/IdleStateMachine/IdleBlendSpace/blend_position";
-    private static string IdleBlendPositionSit => "parameters/IdleStateMachine/IdleSitBlendTree/AnimationNodeBlendSpace2D/blend_position";
-    private static string IdleBlendPositionSitIdle => "parameters/IdleStateMachine/SitBlendSpace/blend_position";
+    private static string IdleBlendPositionSitIdle => "parameters/IdleStateMachine/IdleSitBlendSpace/blend_position";
+    private static string IdleBlendPositionSit => "parameters/IdleStateMachine/SitBlendSpace/blend_position";
     private static string IdleBlendPositionUnsit => "parameters/IdleStateMachine/UnsitBlendTree/AnimationNodeBlendSpace2D/blend_position";
     private int MaxSpeed { get; set; } = 200;
     private float Acceleration { get; set; } = 20f;
@@ -13,7 +16,7 @@ public class StateMovementSprout(Sprout sprout) : StateSprout(sprout)
     
     public override void EnterState()
     {
-       Playback.Travel(WalkBlendSpaceName);
+        Playback.Travel(WalkBlendSpaceName);
     }
 
     public override void ExitState() {}

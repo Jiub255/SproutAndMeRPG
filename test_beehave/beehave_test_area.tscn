@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://jq2f2oy7jl63"]
+
+[ext_resource type="Script" uid="uid://8jat84xav0sw" path="res://test_beehave/player.gd" id="1_8siod"]
+[ext_resource type="Texture2D" uid="uid://hvlmgou5rysw" path="res://art/sprites/Main Character/Character_Idle.png" id="2_8usis"]
+[ext_resource type="Script" uid="uid://dcqtga406scjm" path="res://test_beehave/enemy.gd" id="3_2bmfn"]
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_8usis"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="4_t6f41"]
+[ext_resource type="Texture2D" uid="uid://iu65vj6ypvrk" path="res://art/tilesets/The Fan-tasy Tileset (Free)/Art/Props/Sign_1.png" id="5_ij3mw"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_ovnb0"]
+[ext_resource type="Script" uid="uid://b7i8h6l1aumiv" path="res://test_beehave/hp_less_than.gd" id="6_70h70"]
+[ext_resource type="Script" uid="uid://ch2uwn3xdfidu" path="res://test_beehave/retreat_from_player.gd" id="7_t6f41"]
+
+[node name="BeehaveTestArea" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("number_one") groups=["player"]]
+script = ExtResource("1_8siod")
+number_one = NodePath("../Enemy")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("5_ij3mw")
+
+[node name="Enemy" type="Node2D" parent="." node_paths=PackedStringArray("health_label")]
+position = Vector2(-189, -1)
+script = ExtResource("3_2bmfn")
+health_label = NodePath("Sprite2D/Label")
+speed = 30
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+self_modulate = Color(0, 0.849532, 0.2272534, 1)
+texture = ExtResource("2_8usis")
+hframes = 4
+vframes = 4
+frame = 12
+
+[node name="Label" type="Label" parent="Enemy/Sprite2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_right = -6.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "123"
+
+[node name="BeehaveTree" type="Node" parent="Enemy" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("3_8usis")
+actor_node_path = NodePath("..")
+blackboard = NodePath("@Node@23312")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="SelectorComposite" type="Node" parent="Enemy/BeehaveTree"]
+script = ExtResource("4_t6f41")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="SequenceComposite" type="Node" parent="Enemy/BeehaveTree/SelectorComposite"]
+script = ExtResource("5_ovnb0")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="HpLessThan30Percent" type="Node" parent="Enemy/BeehaveTree/SelectorComposite/SequenceComposite"]
+script = ExtResource("6_70h70")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="RetreatFromPlayer" type="Node" parent="Enemy/BeehaveTree/SelectorComposite/SequenceComposite"]
+script = ExtResource("7_t6f41")
+move_type = 1
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="MoveToPlayer" type="Node" parent="Enemy/BeehaveTree/SelectorComposite"]
+script = ExtResource("7_t6f41")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"

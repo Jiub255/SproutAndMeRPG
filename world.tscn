@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://tb31v63lk2ts"]
+[gd_scene load_steps=13 format=4 uid="uid://tb31v63lk2ts"]
 
 [ext_resource type="Script" uid="uid://do061g11pdi4u" path="res://World.cs" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bui8ajmstd6ba" path="res://characters/player_characters/sprout/sprout.tscn" id="2_aqk2v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://db8vgdgmr88hv" path="res://game_objects/house_1.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bdmvi6c6db2rs" path="res://characters/non_player_characters/friends/james/james.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://bwuo31r6wu647" path="res://characters/non_player_characters/friends/jaime/jaime.tscn" id="8_ioo17"]
+[ext_resource type="PackedScene" uid="uid://g7tlbk3j62cb" path="res://characters/non_player_characters/enemies/skeleton.tscn" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://dnrt0n0o1ryhb" path="res://characters/behavior_tree/test_bt_char.tscn" id="10_wse8f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_036b0"]
@@ -657,3 +658,6 @@ y_sort_enabled = true
 
 [node name="TestBtChar" parent="Enemies" instance=ExtResource("10_wse8f")]
 position = Vector2(115, 11)
+
+[node name="Skeleton" parent="Enemies" instance=ExtResource("10_ic0uy")]
+position = Vector2(-263, -132)

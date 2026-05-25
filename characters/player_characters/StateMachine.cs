@@ -1,6 +1,8 @@
+namespace SproutandMeRPG.characters.player_characters;
+
 public class StateMachine
 {
-    private State CurrentState { get; set; }
+	private State CurrentState { get; set; }
     
     
 	public StateMachine(State initialState)

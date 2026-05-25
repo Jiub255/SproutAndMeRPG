@@ -1,3 +1,5 @@
+namespace SproutandMeRPG.misc;
+
 public static class Inputs
 {
     public const string Left = "left";

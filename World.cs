@@ -1,4 +1,8 @@
 using Godot;
+using SproutandMeRPG.characters.player_characters;
+using SproutandMeRPG.misc;
+
+namespace SproutandMeRPG;
 
 public partial class World : Node2D
 {
@@ -8,8 +12,8 @@ public partial class World : Node2D
     {
         base._Ready();
         
-        PlayerCharacter sprout = GetNode<PlayerCharacter>("%Sprout");
-        PlayerCharacter me =  GetNode<PlayerCharacter>("%Me");
+        characters.player_characters.PlayerCharacter sprout = GetNode<characters.player_characters.PlayerCharacter>("%Sprout");
+        characters.player_characters.PlayerCharacter me =  GetNode<characters.player_characters.PlayerCharacter>("%Me");
         Camera camera = GetNode<Camera>("%Camera");
 
         sprout.Other = me;

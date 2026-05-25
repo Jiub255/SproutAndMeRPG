@@ -1,3 +1,5 @@
+namespace SproutandMeRPG.characters.non_player_characters;
+
 public class StateBlankNpc(NonPlayerCharacter npc) : StateNpc(npc)
 {
     public override void EnterState()

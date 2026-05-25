@@ -1,5 +1,4 @@
-using Godot;
-using System;
+namespace SproutandMeRPG.characters.non_player_characters.enemies.states;
 
 public class StateIdleSkeleton(NonPlayerCharacter npc) : StateNpc(npc)
 {

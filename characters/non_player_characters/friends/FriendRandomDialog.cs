@@ -1,6 +1,8 @@
-using Godot;
 using System;
+using Godot;
 using Godot.Collections;
+
+namespace SproutandMeRPG.characters.non_player_characters.friends;
 
 public partial class FriendRandomDialog : Friend, ITalkable
 {

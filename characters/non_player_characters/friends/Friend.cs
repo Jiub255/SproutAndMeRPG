@@ -1,4 +1,4 @@
-using Godot;
+namespace SproutandMeRPG.characters.non_player_characters.friends;
 
 public abstract partial class Friend : NonPlayerCharacter
 {

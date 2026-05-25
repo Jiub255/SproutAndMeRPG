@@ -1,11 +1,16 @@
-using Godot;
 using System.Collections.Generic;
+using Godot;
+using SproutandMeRPG.characters.non_player_characters;
+using SproutandMeRPG.characters.player_characters.me.states;
+using SproutandMeRPG.misc;
+
+namespace SproutandMeRPG.characters.player_characters.me;
 
 public partial class Me : PlayerCharacter
 {
     public Area2D InteractionArea { get; private set; }
     private List<ITalkable> Talkables { get; } = [];
-    private Dialogic Dialogic { get; set; }
+    private dialog.Dialogic Dialogic { get; set; }
     private bool Talking { get; set; }
     
     public override void _Ready()
@@ -16,7 +21,7 @@ public partial class Me : PlayerCharacter
         InteractionArea = GetNode<Area2D>("%InteractionArea");
         
         Node dialogicGameHandler = GetNode("%DialogicGameHandler");
-        Dialogic = new Dialogic(dialogicGameHandler);
+        Dialogic = new dialog.Dialogic(dialogicGameHandler);
 
         InteractionArea.BodyEntered += AddInteractable;
         InteractionArea.BodyExited += RemoveInteractable;

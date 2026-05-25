@@ -70,7 +70,9 @@
 		{
 			"uuid": "75332ff4-5508-4f0f-8b5b-207915a54401",
 			"title": "BUGS",
-			"tasks": []
+			"tasks": [
+				"54d32627-d0bc-43f3-9ecd-205f9bd6a4c7"
+			]
 		},
 		{
 			"uuid": "7de28946-830b-41ea-bb12-81ce4796ad88",
@@ -156,6 +158,13 @@
 			"title": "Make test enemy",
 			"description": "",
 			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "54d32627-d0bc-43f3-9ecd-205f9bd6a4c7",
+			"title": "Sprout is disappearing when sitting again",
+			"description": "Seems to happen after talking to an npc\nMight just make sit-idle animation blend space. Seems to be a problem with trying to set to the last frame.",
+			"category": "f0101e2c-a961-4d78-b614-0e71dbed8ce5",
 			"steps": []
 		}
 	],

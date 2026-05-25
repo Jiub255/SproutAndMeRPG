@@ -1,5 +1,7 @@
 using Godot;
 
+namespace SproutandMeRPG.characters.non_player_characters;
+
 public abstract partial class NonPlayerCharacter : CharacterBody2D
 {
     public AnimationTree AnimationTree { get; private set; }

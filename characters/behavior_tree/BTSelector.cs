@@ -1,5 +1,7 @@
 using System;
 
+namespace SproutandMeRPG.characters.behavior_tree;
+
 public class BTSelector(string name, BTManager tree) : BTComposite(name, tree)
 {
     private readonly BTManager _tree = tree;

@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+namespace SproutandMeRPG.characters.behavior_tree;
+
 public partial class TestBtChar : CharacterBody2D
 {
     private float _lowHealthPercentage = 50f;
@@ -32,7 +34,7 @@ public partial class TestBtChar : CharacterBody2D
     {
         base._Process(delta);
 
-        BTResult status = _behaviorTest.BehaviorManager.Behave();
+        BTResult status = _behaviorTest.BehaviorManager.Cycle();
         
         _damageTimer -= (float)delta;
         if (_damageTimer <= 0)

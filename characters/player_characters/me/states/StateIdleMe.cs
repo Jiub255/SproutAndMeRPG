@@ -1,4 +1,7 @@
 using Godot;
+using SproutandMeRPG.misc;
+
+namespace SproutandMeRPG.characters.player_characters.me.states;
 
 public class StateIdleMe(Me me) : StateMe(me)
 {
@@ -6,7 +9,7 @@ public class StateIdleMe(Me me) : StateMe(me)
     
     public override void EnterState()
     {
-       Playback.Travel(IdleBlendSpaceName);
+        Playback.Travel(IdleBlendSpaceName);
     }
 
     public override void ExitState() {}

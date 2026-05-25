@@ -1,5 +1,7 @@
 using Godot;
 
+namespace SproutandMeRPG.characters.player_characters;
+
 public class Party
 {
     private PlayerCharacter Sprout { get; }
