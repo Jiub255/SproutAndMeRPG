@@ -3,7 +3,7 @@ using System;
 
 public partial class Camera : Camera2D
 {
-    public Character FollowTarget { get; set; }
+    public PlayerCharacter FollowTarget { get; set; }
 
     [Export(PropertyHint.Range, "0f, 0.25f, 0.01f")]
     private float Smoothing { get; set; } = 0.025f;

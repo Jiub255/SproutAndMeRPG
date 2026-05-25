@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwuo31r6wu647"]
+
+[ext_resource type="Script" uid="uid://bwh221atngkmt" path="res://characters/non_player_characters/friends/FriendRandomDialog.cs" id="1_4sfak"]
+[ext_resource type="Texture2D" uid="uid://dgtaa7ysvjor0" path="res://art/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/warrior_spritesheet.png" id="1_d20rt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_muwa4"]
+radius = 8.1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4fpr3"]
+
+[node name="Jaime" type="CharacterBody2D"]
+script = ExtResource("1_4sfak")
+DialogPaths = Array[String](["res://characters/non_player_characters/friends/jaime/jaime_test1.dtl", "res://characters/non_player_characters/friends/jaime/jaime_test2.dtl", "res://characters/non_player_characters/friends/jaime/jaime_test3.dtl"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14.32)
+shape = SubResource("CircleShape2D_muwa4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d20rt")
+hframes = 11
+vframes = 40
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeStateMachine_4fpr3")
+anim_player = NodePath("../AnimationPlayer")

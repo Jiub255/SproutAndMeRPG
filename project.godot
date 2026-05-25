@@ -22,12 +22,23 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"james": "res://dialog/james.dch"
+"jaime": "res://characters/non_player_characters/friends/jaime/jaime.dch",
+"james": "res://characters/non_player_characters/friends/james/james.dch"
 }
 directories/dtl_directory={
-"james_test": "res://dialog/james_test.dtl"
+"jaime_test1": "res://characters/non_player_characters/friends/jaime/jaime_test1.dtl",
+"jaime_test2": "res://characters/non_player_characters/friends/jaime/jaime_test2.dtl",
+"jaime_test3": "res://characters/non_player_characters/friends/jaime/jaime_test3.dtl",
+"james_test": "res://characters/non_player_characters/friends/james/james_test.dtl"
 }
 layout/style_directory={}
+layout/style_list=[]
+layout/default_style=""
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

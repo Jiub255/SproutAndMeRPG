@@ -8,8 +8,8 @@ public partial class World : Node2D
     {
         base._Ready();
         
-        Character sprout = GetNode<Character>("%Sprout");
-        Character me =  GetNode<Character>("%Me");
+        PlayerCharacter sprout = GetNode<PlayerCharacter>("%Sprout");
+        PlayerCharacter me =  GetNode<PlayerCharacter>("%Me");
         Camera camera = GetNode<Camera>("%Camera");
 
         sprout.Other = me;

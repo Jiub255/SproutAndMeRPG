@@ -44,7 +44,9 @@
 		{
 			"uuid": "5fd3e5da-7539-4975-848d-db872e803180",
 			"title": "DOING",
-			"tasks": []
+			"tasks": [
+				"4a9eeff5-0bc8-4225-be46-a1a39d88398c"
+			]
 		},
 		{
 			"uuid": "c30cf8d3-b6d9-4294-ad9a-64e5903fe5d0",
@@ -147,6 +149,13 @@
 			"title": "Sprout only faces diagonally when following",
 			"description": "Fixed by sending direction instead of Sprout.Velocity to Animate() in Sprout.ProcessUnselected()",
 			"category": "f0101e2c-a961-4d78-b614-0e71dbed8ce5",
+			"steps": []
+		},
+		{
+			"uuid": "4a9eeff5-0bc8-4225-be46-a1a39d88398c",
+			"title": "Make test enemy",
+			"description": "",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
 			"steps": []
 		}
 	],

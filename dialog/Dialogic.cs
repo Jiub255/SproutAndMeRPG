@@ -1,10 +1,17 @@
 using Godot;
+using System;
 
 public partial class Dialogic : GodotObject
 {
+   // public event Action<Variant> SignalEvent;
+    public event Action TimelineEnded;
+
     public Dialogic(Node dialogicGameHandler)
     {
         DialogicGameHandler = dialogicGameHandler;
+
+        //DialogicGameHandler.Connect("signal_event", Callable.From<Variant>(InvokeSignalEvent));
+        DialogicGameHandler.Connect("timeline_ended", Callable.From(InvokeTimelineEnded));
     }
     
     public bool TimelineNull
@@ -18,8 +25,18 @@ public partial class Dialogic : GodotObject
 
     private Node DialogicGameHandler { get; }
     
-    public void Start(string timelineName)
+    public Node Start(string timelineName)
     {
-        DialogicGameHandler.Call("start",  timelineName);
+        return (Node)DialogicGameHandler.Call("start",  timelineName);
+    }
+
+    // private void InvokeSignalEvent(Variant variant)
+    // {
+    //     SignalEvent?.Invoke(variant);
+    // }
+
+    private void InvokeTimelineEnded()
+    {
+        TimelineEnded?.Invoke();
     }
 }
