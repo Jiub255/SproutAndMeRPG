@@ -45,7 +45,8 @@
 			"uuid": "5fd3e5da-7539-4975-848d-db872e803180",
 			"title": "DOING",
 			"tasks": [
-				"4a9eeff5-0bc8-4225-be46-a1a39d88398c"
+				"4a9eeff5-0bc8-4225-be46-a1a39d88398c",
+				"09c65390-c84d-405b-bb78-331bbe5bebcb"
 			]
 		},
 		{
@@ -62,6 +63,7 @@
 			"uuid": "150d8bd1-ba6d-4a8a-b93e-15d7215549c1",
 			"title": "FIXED BUGS",
 			"tasks": [
+				"54d32627-d0bc-43f3-9ecd-205f9bd6a4c7",
 				"ad9ed1af-c8b9-4fdd-9cee-34d921c949c9",
 				"4ba0746a-c06b-4792-a5da-0019109fab8f",
 				"39eaa594-95f2-4303-8680-dad21e75f9b9"
@@ -70,15 +72,14 @@
 		{
 			"uuid": "75332ff4-5508-4f0f-8b5b-207915a54401",
 			"title": "BUGS",
-			"tasks": [
-				"54d32627-d0bc-43f3-9ecd-205f9bd6a4c7"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "7de28946-830b-41ea-bb12-81ce4796ad88",
 			"title": "TODO EVENTUALLY",
 			"tasks": [
-				"44bd9d60-8028-42a6-b273-efdcb0280d8b"
+				"44bd9d60-8028-42a6-b273-efdcb0280d8b",
+				"aa9944d6-0ba7-469e-b212-fe20ec13223e"
 			]
 		}
 	],
@@ -156,16 +157,43 @@
 		{
 			"uuid": "4a9eeff5-0bc8-4225-be46-a1a39d88398c",
 			"title": "Make test enemy",
-			"description": "",
+			"description": "Try out behavior trees",
 			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
 			"steps": []
 		},
 		{
 			"uuid": "54d32627-d0bc-43f3-9ecd-205f9bd6a4c7",
 			"title": "Sprout is disappearing when sitting again",
-			"description": "Seems to happen after talking to an npc\nMight just make sit-idle animation blend space. Seems to be a problem with trying to set to the last frame.",
+			"description": "Fixed by setting all blend spaces to discrete instead of continuous. The ones with continuous were causing the problems.\n\nSeems to happen after talking to an npc\nMight just make sit-idle animation blend space. Seems to be a problem with trying to set to the last frame.",
 			"category": "f0101e2c-a961-4d78-b614-0e71dbed8ce5",
 			"steps": []
+		},
+		{
+			"uuid": "aa9944d6-0ba7-469e-b212-fe20ec13223e",
+			"title": "Implement state tree",
+			"description": "Just to try it out vs behavior trees and state machines Maybe try state tree for higher level states, then behavior trees for the individual tasks within each state?\n\n-------------------------------------------------------------------------------------------------------------------------------------------\nExplanation of state trees from\nhttps://jeanpaulsoftware.com/2024/08/13/state-tree-hell/\n-------------------------------------------------------------------------------------------------------------------------------------------\n\nContext - Whatever the state tree controls, or access to it\nParameters - Globals read/write variables. Like a blackboard from behavior trees?\nTasks - Actual things the AI should do\nStates - Logical groupings of tasks, and transitions from the state to whichever others\nTransitions - From one state to another. Can have conditions\nEvaluators - Provide outside data to the tree. Run every tick regardless of state?\nBindings - Expose input variables from a task to its containing (parent?) state\n\n-------------------------------------------------------------------------------------------------------------------------------------------\n\nEach tree has a ‘root’ state where execution starts. The State Tree will then try and find states to activate by running the following algorithm, running from top to bottom of the tree.\n\n1. Move consideration to the next child state of the last state checked (which is initially the root state).\n2. Check this state for enter conditions. If the conditions pass, or there are no conditions:\n    a. This state is marked as active.\n    b. If this state is a Leaf State- one that has no child states- stop searching and move to 5.\n    c. Otherwise, set consideration to this node, and go back to 1.\n3. If the enter conditions fail, move consideration to the next child of the last state checked.\n4. If no states remain to be checked, and there are no active states, the tree exits.\n5. If the tree is still running, start any tasks on states that are active, stop any tasks on states that are not, and wait for a transition to \t\tbe triggered.\n6. When a transition occurs, move consideration to wherever the transition points to, and go back to 2.\n",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": []
+		},
+		{
+			"uuid": "09c65390-c84d-405b-bb78-331bbe5bebcb",
+			"title": "Set up behavior trees",
+			"description": "So far doing the C# based one, but want to incorporate some ideas from beehave, like passing the actor into the node instead of calling methods (by string) from the actor's script.",
+			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
+			"steps": [
+				{
+					"details": "Pass actor into nodes\nJust pass in actor? Or pass in some general context object? Or use blackboard for the extra context and just pass actor? Probably that.",
+					"done": false
+				},
+				{
+					"details": "Set up blackboard in c#\nHow to set up blackboard with c# version?",
+					"done": false
+				},
+				{
+					"details": "Interrupt thing in c#?\nWhat's the interrupt thing in the c# version? Can't interrupts just be earlier nodes on a sequence/selector?",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {

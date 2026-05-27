@@ -311,6 +311,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_osrob")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_p5k5p")
 blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jkxhu"]
 animation = &"die_left"
@@ -377,6 +378,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_i3s5i")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_72an4")
 blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jk0ba"]
 
@@ -426,10 +428,10 @@ unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_iu6bd")
 anim_player = NodePath("../AnimationPlayer")
-parameters/AttackBlendSpace/blend_position = Vector2(-0.01457727, -0.38372087)
+parameters/AttackBlendSpace/blend_position = Vector2(0.0015431643, 0.6860465)
 parameters/DieBlendSpace/blend_position = Vector2(0, 0)
 parameters/IdleBlendSpace/blend_position = Vector2(-0.9956268, 0.01010108)
-parameters/RunBlendSpace/blend_position = Vector2(0.20553935, -0.040697694)
+parameters/RunBlendSpace/blend_position = Vector2(0.0030864477, 0.50581396)
 
 [node name="ChaseArea" type="Area2D" parent="."]
 unique_name_in_owner = true

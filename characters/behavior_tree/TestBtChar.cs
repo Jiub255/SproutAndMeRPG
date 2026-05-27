@@ -59,7 +59,7 @@ public partial class TestBtChar : CharacterBody2D
         _distanceMoved += (newPosition - oldPosition).Length();
         if (_distanceMoved > 100)
         {
-            GD.Print("moved 100");
+         //   GD.Print("moved 100");
             _distanceMoved = 0;
             Health = _maxHealth;
             _hpLabel.Text = Health.ToString();

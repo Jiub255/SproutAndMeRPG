@@ -77,8 +77,8 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
 
     private void ResetTimerRandom()
     {
-        Timer = 2f;
-        //Timer = Random.RandomFRange(MinRandomTime, MaxRandomTime);
+        //Timer = 2f;
+        Timer = Random.RandomFRange(MinRandomTime, MaxRandomTime);
     }
 
     private void ChooseIdlePositionRandom()
@@ -87,13 +87,13 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
         {
             case IdlePosition.Normal:
             {
-                int random = Random.Next(1);
-                //int random = Random.Next(5);
+                //int random = Random.Next(1);
+                int random = Random.Next(5);
                 switch (random)
                 {
                     case 0:
                         // TODO: Shift to sitting animation
-                        GD.Print("Switching to sitting animation");
+                        //GD.Print("Switching to sitting animation");
                        // Sprout.AnimationTree.Set(IdleSitTimeSeekPath, AnimationLength);
                         IdleVariation = IdlePosition.Sitting;
                         IdlePlayback.Travel(IdleSitName);
@@ -105,7 +105,7 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
                     //     break;
                     default:
                         // TODO: Stay in regular idle animation
-                        GD.Print("Staying in idle animation");
+                        //GD.Print("Staying in idle animation");
                         IdleVariation = IdlePosition.Normal;
                         break;
                 }
@@ -113,11 +113,11 @@ public class StateIdleSprout(Sprout sprout) : StateSprout(sprout)
             }
             case IdlePosition.Sitting:
             {
-                if (Random.XinYOdds(1, 1))
-                    //if (Random.XinYOdds(1, 4))
+                //if (Random.XinYOdds(1, 1))
+                if (Random.XinYOdds(1, 4))
                 {
                     // TODO: Switch to unsitting blend tree, which should automatically go to regular idle after
-                    GD.Print("Switching to unsitting animation");
+                   // GD.Print("Switching to unsitting animation");
                     Sprout.AnimationTree.Set(UnsitTimeSeekPath, AnimationLength);
                     IdleVariation = IdlePosition.Normal;
                     IdlePlayback.Travel(IdleUnsitName);

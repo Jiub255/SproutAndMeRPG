@@ -199,6 +199,142 @@ tracks/0/keys = {
 "values": [315, 320]
 }
 
+[sub_resource type="Animation" id="Animation_hnl1i"]
+resource_name = "sit_idle_down"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [258]
+}
+
+[sub_resource type="Animation" id="Animation_c2psr"]
+resource_name = "sit_idle_down_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [266]
+}
+
+[sub_resource type="Animation" id="Animation_7gewd"]
+resource_name = "sit_idle_down_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [320]
+}
+
+[sub_resource type="Animation" id="Animation_dryjg"]
+resource_name = "sit_idle_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [275]
+}
+
+[sub_resource type="Animation" id="Animation_g4slk"]
+resource_name = "sit_idle_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [311]
+}
+
+[sub_resource type="Animation" id="Animation_00xry"]
+resource_name = "sit_idle_up"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [293]
+}
+
+[sub_resource type="Animation" id="Animation_pkxgd"]
+resource_name = "sit_idle_up_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [284]
+}
+
+[sub_resource type="Animation" id="Animation_qoli8"]
+resource_name = "sit_idle_up_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [302]
+}
+
 [sub_resource type="Animation" id="Animation_6kymu"]
 resource_name = "sit_left"
 length = 0.7
@@ -415,142 +551,6 @@ tracks/0/keys = {
 "values": [54, 58]
 }
 
-[sub_resource type="Animation" id="Animation_hnl1i"]
-resource_name = "sit_idle_down"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [258]
-}
-
-[sub_resource type="Animation" id="Animation_00xry"]
-resource_name = "sit_idle_up"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [293]
-}
-
-[sub_resource type="Animation" id="Animation_pkxgd"]
-resource_name = "sit_idle_up_left"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [284]
-}
-
-[sub_resource type="Animation" id="Animation_dryjg"]
-resource_name = "sit_idle_left"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [275]
-}
-
-[sub_resource type="Animation" id="Animation_c2psr"]
-resource_name = "sit_idle_down_left"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [266]
-}
-
-[sub_resource type="Animation" id="Animation_qoli8"]
-resource_name = "sit_idle_up_right"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [302]
-}
-
-[sub_resource type="Animation" id="Animation_g4slk"]
-resource_name = "sit_idle_right"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [311]
-}
-
-[sub_resource type="Animation" id="Animation_7gewd"]
-resource_name = "sit_idle_down_right"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [320]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tlwt5"]
 _data = {
 &"RESET": SubResource("Animation_fj7yv"),
@@ -629,6 +629,7 @@ blend_point_6/node = SubResource("AnimationNodeAnimation_g4slk")
 blend_point_6/pos = Vector2(0, -1)
 blend_point_7/node = SubResource("AnimationNodeAnimation_7gewd")
 blend_point_7/pos = Vector2(-1, -1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_ig4wr"]
 
@@ -645,7 +646,7 @@ node_connections = [&"output", 0, &"TimeSeek", &"TimeSeek", 0, &"AnimationNodeBl
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_6kymu"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ig4wr"]
-graph_offset = Vector2(-692, 14)
+graph_offset = Vector2(-718, 7)
 nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_6kymu")
 nodes/TimeSeek/position = Vector2(20, 100)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_25yb2")

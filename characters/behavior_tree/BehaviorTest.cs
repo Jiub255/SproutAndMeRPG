@@ -14,10 +14,10 @@ public class BehaviorTest
                 BTBuilder builder = new(tree);
                 builder
                     .Selector("TestChecklist")
-                    .Sequence("Health")
-                    .Condition("Injured", (Func<BTResult>)actions["Injured"])
-                    .Action("LocateShelter", (Func<BTResult>)actions["LocateShelter"])
-                    .End()
+                        .Sequence("Health")
+                            .Condition("Injured", (Func<BTResult>)actions["Injured"])
+                            .Action("LocateShelter", (Func<BTResult>)actions["LocateShelter"])
+                        .End()
                     .End();
                 return builder.Build();
             },

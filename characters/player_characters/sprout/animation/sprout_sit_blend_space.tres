@@ -41,3 +41,4 @@ blend_point_6/node = SubResource("AnimationNodeAnimation_yelny")
 blend_point_6/pos = Vector2(0, -1)
 blend_point_7/node = SubResource("AnimationNodeAnimation_t521v")
 blend_point_7/pos = Vector2(-1, -1)
+blend_mode = 1
