@@ -79,6 +79,7 @@
 			"title": "TODO EVENTUALLY",
 			"tasks": [
 				"44bd9d60-8028-42a6-b273-efdcb0280d8b",
+				"0ee3283c-7c32-42fc-80a6-468fb2aea9a8",
 				"aa9944d6-0ba7-469e-b212-fe20ec13223e"
 			]
 		}
@@ -178,7 +179,7 @@
 		{
 			"uuid": "09c65390-c84d-405b-bb78-331bbe5bebcb",
 			"title": "Set up behavior trees",
-			"description": "So far doing the C# based one, but want to incorporate some ideas from beehave, like passing the actor into the node instead of calling methods (by string) from the actor's script.",
+			"description": "So far doing the C# based one, but want to incorporate some ideas from beehave, like passing the actor into the node instead of calling methods (by string) from the actor's script.\nOr maybe having a base class for all enemies/npcs that has stuff like animation trees and blend position paths?",
 			"category": "b37a6e6a-a254-4b0f-b8ae-a4e0cc035d0e",
 			"steps": [
 				{
@@ -194,6 +195,13 @@
 					"done": false
 				}
 			]
+		},
+		{
+			"uuid": "0ee3283c-7c32-42fc-80a6-468fb2aea9a8",
+			"title": "Make enemy/npc \"factions\"",
+			"description": "Just have an enum with all the groups of enemies/npcs. The groups then get a check board kinda like physics layers, where if groups x and y have a check on their square, then they're friendly with each other (or the other way around). ",
+			"category": "75ccd789-49f2-4157-ba4d-f8c49e982baf",
+			"steps": []
 		}
 	],
 	"layout": {

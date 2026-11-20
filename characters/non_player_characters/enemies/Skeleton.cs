@@ -65,6 +65,8 @@ public partial class Skeleton : CharacterBody2D
         _behavior = new BehaviorSkeleton(actions, () => BTResult.Failure);
     }
 
+    // TODO: Put each action in its own class that derives from BTAction?
+    // Same with conditions?
     private BTResult Wandering()
     {
         bool wandering = _player == null;

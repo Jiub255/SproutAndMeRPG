@@ -30,6 +30,8 @@ public class BTBuilder
         return this;
     }
 
+    // TODO: Pass in character instead of predicate/action.
+    // Store character on builder so it can just pass it in every time.
     public BTBuilder Condition(string name, Func<BTResult> predicate)
     {
         BTCondition node = new(name, _manager, predicate);
